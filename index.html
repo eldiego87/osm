@@ -875,6 +875,7 @@ else if (!isNaN(parseFloat(valorCloro)) && parseFloat(valorCloro) >= 0.2) {
                                 doc.setFont("helvetica" , "bold");
                                 doc.setFontSize(21);
                                 doc.text(`${CPERM || '  '}`         , 131, 168);
+                               
                             }
                             if (imagenCAUDAL === "FALLA") {
 
@@ -893,6 +894,7 @@ else if (!isNaN(parseFloat(valorCloro)) && parseFloat(valorCloro) >= 0.2) {
                                 doc.setFont("helvetica" , "bold");
                                 doc.setFontSize(21);
                                 doc.text(`${CPERM || '  '}`         , 131, 168);
+                                
                             }
 
                             // RESULTADOS DE RECHAZO
@@ -964,12 +966,14 @@ if (rechazo !== '') {
                                                                                                         }
 
     // Configurar el cuadro de comentarios para un ancho específico
-    const maxWidth = 157;  // Ancho en mm para el cuadro de comentarios
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.setCharSpace(0);
+    const maxWidth = 187;  // Ancho en mm para el cuadro de comentarios
     const comentariosLíneas = doc.splitTextToSize(comentarios, maxWidth);
 
     // Agregar los comentarios al PDF
-    
-    doc.setFontSize(12);
+
     doc.text(comentariosLíneas, 11, 178);  // Coordenadas X=10, Y=200
 
             // Obtener las imágenes de la firma y el apellido y añadirlas al PDF
